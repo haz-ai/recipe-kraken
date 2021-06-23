@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <Navbar />
         <div className="Content">
-          <switch>
+          <Switch>
             <Route exact path='/'>
               <Home />
             </Route>
@@ -21,7 +21,7 @@ function App() {
             <Route exact path='/Support'>
               <Support />
             </Route>
-          </switch>
+          </Switch>
         </div>
         <div className="Footer">
           <Footer />
