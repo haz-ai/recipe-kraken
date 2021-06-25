@@ -1,21 +1,49 @@
 import { useState } from "react";
+// import useFetch from "./useFetch";
+// import axios from 'axios';
 const Home = () => {
-    const [search, setSearch] = useState('Search');
+    const [Search, setSearch] = useState();
     const [isPending, setIsPending] = useState(false);
-    const handleSubmit = (e) => {
+    const [recieved, setRecieved] = useState(false);
+    const [isSearching, setIsSearching] = useState(false);
+    // const baseURL = "https://api.edamam.com/api/recipes/v2?type=public&q=";
+    const HandleSubmit = (e) => {
         e.preventDefault();
-        setIsPending(true);
+        setIsSearching(true);
     }
+    const [data, setData] = useState({ hits: [] });
+    if (isSearching === true) {
+        setIsSearching(false);
+        sendApiRequest();
+        setIsPending(true);
+        setRecieved(false);
+    }
+    async function sendApiRequest() {
+
+        let apiID = process.env.REACT_APP_API_ID;
+        let apiKey = process.env.REACT_APP_API_KEY;
+        let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${apiID}&app_key=${apiKey}&q=pizza`);
+        console.log(response);
+        let data = await response.json();
+        console.log(data);
+        console.log(data.hits[0].recipe.image);
+        setData(data);
+        setRecieved(true);
+        // ApiDataManipulation(data);
+    }
+    // function ApiDataManipulation(data) {
+    //     let recipeImage = data.hits[0].recipe.image;
+    //     document.querySelector("#searchResults").innerHTML = `
+    // }
 
     return (
         <div>
             <div className="searching">
-                <form onSubmit={handleSubmit}>
-                    <label for="search">Search for stuff</label>
+                <form onSubmit={HandleSubmit}>
+                    <label>Search for stuff</label>
                     <input id="search"
                         type="search"
                         placeholder="Search..."
-                        autofocus
                         required
                         onChange={(e) => setSearch(e.target.value)}
                     />
@@ -24,24 +52,9 @@ const Home = () => {
                     {isPending && <button disabled type="submit">Searching</button>}
                 </form>
             </div>
-            <div>
-                <p className="Center">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                </p>
+            <div className="searchResults">
+                {/* {recieved && <img src={data.hits[0].recipe.image}></img> } */}
+                {data && <recipeCards recipes={data} title={search} />}
             </div>
         </div>
 
