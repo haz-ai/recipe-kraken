@@ -1,23 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --rad: 0.7rem;
+  --dur: 0.3s;
+  --color-dark: #333;
+  --color-border: #f2f2f2;
+  --color-light: #ffffff;
+  --color-brand: #52bf04;
+  --color-accent: #56fc58;
+  --font-fam: "Quicksand";
+  --height: 5rem;
+  --btn-width: 9rem;
+  --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
 
 /* base styles */
 * {
   margin: 0;
-  font-family: "Quicksand";
-  color: #333;
+  font-family: var(--font-fam);
+  color: var(--color-dark);
 }
-
 .Navbar {
   padding: 20px;
   display: flex;
   align-items: center;
   max-width: 600px;
   margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: var(--color-border);
 }
 .Navbar h1 {
-  color: #52Bf04;
+  color: var(--color-brand);
 }
 .Navbar .links {
   margin-left: auto;
@@ -28,19 +41,83 @@
   padding: 6px;
 }
 .Navbar a:hover {
-  color: #56FC58;
+  color: var(--color-accent);
 }
+
+/* Content Main */
 .content {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
 }
-.Center{
+
+/* Search Bar */
+.searching {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.searching form {
+  position: relative;
+  width: 30rem;
+  background: var(--color-brand);
+  border-radius: var(--rad);
+}
+.searching input,
+.searching button {
+  height: var(--height);
+  font-family: var(--font-fam);
+  border: 0;
+  color: var(--color-dark);
+  font-size: 1.8rem;
+}
+.searching input[type="search"] {
+  outline: 0;
+  width: 100%;
+  background: var(--color-light);
+  padding: 0 1.6rem;
+  border-radius: var(--rad);
+  appearance: none;
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+}
+.searching button {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--btn-width);
+  font-weight: bold;
+  background: var(--color-brand);
+  border-radius: 0 var(--rad) var(--rad) 0;
+}
+.searching input:not(:placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+}
+.searching input:not(:placeholder-shown) ~ button {
+  display: block;
+}
+.searching label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+/* A simple thing to center the components */
+.Center {
   text-align: justify;
   padding: 20px;
 }
-.Footer{
-  background-color: #333;
+/* Footer */
+.Footer {
+  background-color: var(--color-dark);
   column-count: 3;
   position: fixed;
   bottom: 0;
@@ -50,7 +127,7 @@
 .Footer p {
   padding: 2%;
   text-align: center;
-  color: #ffffff;
+  color: var(--color-light);
   margin-bottom: 5px;
 }
 /* For the about page */
@@ -88,3 +165,4 @@
   border-bottom: 1px solid #f2f2f2;
   padding-top: 20px;
 }
+
