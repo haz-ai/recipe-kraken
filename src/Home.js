@@ -1,47 +1,42 @@
 import { useState } from "react";
-const Home = () => {
-    const [search, setSearch] = useState('Search');
-    const [isPending, setIsPending] = useState(false);
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setIsPending(true);
-    }
+import RecipeCards from "./RecipeCards";
+import useFetch from './useFetch';
 
+// const API_ID = process.env.REACT_APP_API_ID;
+// const API_KEY = process.env.REACT_APP_API_KEY;
+const Home = () => {
+    const [Search, setSearch] = useState();
+    let Query = null;
+    const [URL, setURL] = useState("");
+
+    const HandleSubmit = (e) => {
+        e.preventDefault();
+        Query = Search;
+        setURL("https://api.edamam.com/api/recipes/v2?type=public&q=" + Query + "&app_id=3b272b52&app_key=e7699c9c3cad81809317a0c20ee582bf")
+        console.log(URL);
+        console.log(Query);
+        console.log(data);
+    }
+    const { data } = useFetch(URL);
     return (
         <div>
             <div className="searching">
-                <form onSubmit={handleSubmit}>
-                    <label for="search">Search for stuff</label>
+                <form onSubmit={HandleSubmit}>
+                    <label>Search for stuff</label>
                     <input id="search"
                         type="search"
                         placeholder="Search..."
-                        autofocus
                         required
                         onChange={(e) => setSearch(e.target.value)}
                     />
-                    {/* <button type="submit">Go</button> */}
-                    {!isPending && <button type="submit">Go</button>}
-                    {isPending && <button disabled type="submit">Searching</button>}
+                    {<button type="submit">Go</button>}
                 </form>
             </div>
-            <div>
-                <p className="Center">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus, quasi debitis omnis aliquam vitae maiores placeat voluptatem amet at quas tempore nostrum vel nihil magni doloremque perferendis laboriosam vero?
-                </p>
+            <div className="searchResults">
+                {console.log(data)}
+                {/* {recieved && <img src={data.hits[0].recipe.image}></img> } */}
+                {data && <RecipeCards data={data} />}
+
             </div>
         </div>
 

@@ -1,0 +1,1 @@
+https://api.edamam.com/api/recipes/v2?type=public&app_id=3b272b52&app_key=e7699c9c3cad81809317a0c20ee582bf&q=pizza
