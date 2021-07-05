@@ -32,12 +32,10 @@ const Home = () => {
                     {<button type="submit">Go</button>}
                 </form>
             </div>
-            <div className="searchResults">
+            {/* {Where recipes end up their is no div since recipe cards inserts a section for it} */}
                 {console.log(data)}
                 {/* {recieved && <img src={data.hits[0].recipe.image}></img> } */}
                 {data && <RecipeCards data={data} />}
-
-            </div>
         </div>
 
     );
