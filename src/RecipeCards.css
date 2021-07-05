@@ -27,18 +27,27 @@
   display: grid;
   gap: var(--Recipe-Grid-Spacing);
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-
+  margin-bottom: 3rem;
 }
 .RecipeCard{
     background-color: var(--colour-background);
-    background-size: cover
-}
-.RecipeCard h1{
+    background-size: cover;
+    display: block;
+    align-content: center;
+    align-items: center;
+  }
+  .RecipeCard h1{
     align-items: center;
     height: var(--height);
     font-family: var(--font-fam);
     color: var(--color-dark);
+    margin: 1rem;
+    text-align: center;
 }
 .RecipeCard img{
-  align-items: center;
+  height: auto;
+  width: 80%;
+/* even more control with max-width */
+  max-width: 720px;
+  margin: 8px;
 }

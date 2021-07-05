@@ -116,21 +116,6 @@
   text-align: justify;
   padding: 20px;
 }
-/* Footer */
-.Footer {
-  background-color: var(--color-dark);
-  column-count: 3;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-.Footer p {
-  padding: 2%;
-  text-align: center;
-  color: var(--color-light);
-  margin-bottom: 5px;
-}
 /* For the about page */
 .About
 {
@@ -165,4 +150,20 @@
 .Support h3{
   border-bottom: 1px solid #f2f2f2;
   padding-top: 20px;
+}
+/* Footer */
+.Footer {
+  background-color: var(--color-dark);
+  column-count: 3;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 1rem;
+}
+.Footer p {
+  padding: 2%;
+  text-align: center;
+  color: var(--color-light);
+  margin-bottom: 5px;
 }

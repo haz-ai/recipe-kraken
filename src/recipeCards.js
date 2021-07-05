@@ -4,11 +4,12 @@ const RecipeCards = ({ data }) => {
         data.map((recipe) => {
             return (
                 <div className="RecipeCard" key={recipe.recipe.label.toString()}>
-                    {console.log(recipe)}
+                    {/* {console.log(recipe)} */}
+                    {/* {for testing and finding variables} */}
                     <div className="header">
                         <h1>{recipe.recipe.label}</h1>
                     </div>
-                    <img src={recipe.recipe.image} alt="recipe_image"></img>
+                    <a href={recipe.recipe.url} target="_blank" rel="noopener noreferrer"><img src={recipe.recipe.image} alt="recipe_image"></img></a>
                 </div>
             );
         })
