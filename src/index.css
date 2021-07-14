@@ -2,15 +2,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
-  --rad: 0.7rem;
-  --dur: 0.3s;
+  --rad: 0.9rem;
+  --dur: 2s;
   --color-dark: #333;
   --color-border: #f2f2f2;
   --color-light: #ffffff;
-  --color-brand: #52bf04;
+  --color-brand: #9cbb14;
   --color-accent: #56fc58;
+  --colour-background: #97bf7a;
   --font-fam: "Quicksand";
-  --height: 5rem;
+  --Recipe-height: 3rem;
+  --Recipe-btn-width: 5rem;
+  --Recipe-Grid-Spacing: 0.2rem;
+  --height: 3rem;
   --btn-width: 9rem;
   --bez: cubic-bezier(0, 0, 0.43, 1.49);
 }
@@ -25,7 +29,7 @@
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
+  max-width: 900px;
   margin: 0 auto;
   border-bottom: var(--color-border);
 }
@@ -36,9 +40,9 @@
   margin-left: auto;
 }
 .Navbar a {
-  margin-left: 16px;
+  margin-left: 8px;
   text-decoration: none;
-  padding: 6px;
+  padding: 3px;
 }
 .Navbar a:hover {
   color: var(--color-accent);
@@ -60,7 +64,7 @@
 }
 .searching form {
   position: relative;
-  width: 30rem;
+  width: 40rem;
   background: var(--color-brand);
   border-radius: var(--rad);
 }

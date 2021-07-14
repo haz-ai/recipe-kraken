@@ -1,53 +1,37 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
-:root {
-  --rad: 0.7rem;
-  --dur: 0.3s;
-  --color-dark: #333;
-  --color-border: #f2f2f2;
-  --color-light: #ffffff;
-  --color-brand: #52bf04;
-  --color-accent: #56fc58;
-  --colour-background: #97BF7A;
-  --font-fam: "Quicksand";
-  --Recipe-height: 2rem;
-  --Recipe-btn-width: 5rem;
-  --Recipe-Grid-Spacing: 1rem;
-  --bez: cubic-bezier(0, 0, 0.43, 1.49);
-}
-/* base styles */
-* {
-    margin: 0;
-    font-family: var(--font-fam);
-    color: var(--color-dark);
-  }
-  /* Recipe card beginnner class */
-.RecipeGrid{
+/* Recipe card beginnner class */
+.RecipeGrid {
   display: grid;
   gap: var(--Recipe-Grid-Spacing);
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 0.5fr));
+  margin: 2rem;
+  margin-bottom: 4rem;
 }
-.RecipeCard{
-    background-color: var(--colour-background);
-    background-size: cover;
-    display: block;
-    align-content: center;
-    align-items: center;
-  }
-  .RecipeCard h1{
-    align-items: center;
-    height: var(--height);
-    font-family: var(--font-fam);
-    color: var(--color-dark);
-    margin: 1rem;
-    text-align: center;
+.RecipeCard {
+  background-color: var(--colour-background);
+  background-size: cover;
+  display: block;
+  align-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
-.RecipeCard img{
+.RecipeCard h1 {
+  align-items: center;
+  height: var(--height);
+  font-family: var(--font-fam);
+  color: var(--color-light);
+  margin: 1rem;
+  text-align: center;
+}
+.RecipeCard img {
   height: auto;
-  width: 80%;
-/* even more control with max-width */
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  /* even more control with max-width */
   max-width: 720px;
   margin: 8px;
+  border-width: 1rem;
+  border-style: var(--bez);
+  border-color: var(--color-dark);
 }

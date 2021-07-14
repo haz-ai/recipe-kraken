@@ -16,6 +16,7 @@ const Home = () => {
         console.log(URL);
         console.log(Query);
         console.log(data);
+        localStorage.removeItem(data);
     }
     const { data } = useFetch(URL);
     return (
@@ -33,11 +34,9 @@ const Home = () => {
                 </form>
             </div>
             {/* {Where recipes end up their is no div since recipe cards inserts a section for it} */}
-                {console.log(data)}
                 {/* {recieved && <img src={data.hits[0].recipe.image}></img> } */}
                 {data && <RecipeCards data={data} />}
         </div>
-
     );
 }
 
