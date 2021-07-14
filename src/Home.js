@@ -1,5 +1,5 @@
 import { useState } from "react";
-import RecipeCards from "./RecipeCards";
+import RecipeCards from "./recipeCards";
 import useFetch from './useFetch';
 
 // const API_ID = process.env.REACT_APP_API_ID;
