@@ -2,15 +2,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
-  --rad: 0.7rem;
-  --dur: 0.3s;
+  --rad: 0.9rem;
+  --dur: 2s;
   --color-dark: #333;
   --color-border: #f2f2f2;
   --color-light: #ffffff;
-  --color-brand: #52bf04;
+  --color-brand: #9cbb14;
   --color-accent: #56fc58;
+  --colour-background: #97bf7a;
   --font-fam: "Quicksand";
-  --height: 5rem;
+  --Recipe-height: 3rem;
+  --Recipe-btn-width: 5rem;
+  --Recipe-Grid-Spacing: 0.2rem;
+  --height: 3rem;
   --btn-width: 9rem;
   --bez: cubic-bezier(0, 0, 0.43, 1.49);
 }
@@ -25,7 +29,7 @@
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
+  max-width: 900px;
   margin: 0 auto;
   border-bottom: var(--color-border);
 }
@@ -36,9 +40,9 @@
   margin-left: auto;
 }
 .Navbar a {
-  margin-left: 16px;
+  margin-left: 8px;
   text-decoration: none;
-  padding: 6px;
+  padding: 3px;
 }
 .Navbar a:hover {
   color: var(--color-accent);
@@ -56,10 +60,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: var(--rad);
 }
 .searching form {
   position: relative;
-  width: 30rem;
+  width: 40rem;
   background: var(--color-brand);
   border-radius: var(--rad);
 }
@@ -67,7 +72,7 @@
 .searching button {
   height: var(--height);
   font-family: var(--font-fam);
-  border: 0;
+  border: 5rem;
   color: var(--color-dark);
   font-size: 1.8rem;
 }
@@ -75,7 +80,7 @@
   outline: 0;
   width: 100%;
   background: var(--color-light);
-  padding: 0 1.6rem;
+  padding: 0 1.8rem;
   border-radius: var(--rad);
   appearance: none;
   transition: all var(--dur) var(--bez);
@@ -115,21 +120,6 @@
   text-align: justify;
   padding: 20px;
 }
-/* Footer */
-.Footer {
-  background-color: var(--color-dark);
-  column-count: 3;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-.Footer p {
-  padding: 2%;
-  text-align: center;
-  color: var(--color-light);
-  margin-bottom: 5px;
-}
 /* For the about page */
 .About
 {
@@ -165,4 +155,19 @@
   border-bottom: 1px solid #f2f2f2;
   padding-top: 20px;
 }
-
+/* Footer */
+.Footer {
+  background-color: var(--color-dark);
+  column-count: 3;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 1rem;
+}
+.Footer p {
+  padding: 2%;
+  text-align: center;
+  color: var(--color-light);
+  margin-bottom: 5px;
+}

@@ -1,0 +1,37 @@
+/* Recipe card beginnner class */
+.RecipeGrid {
+  display: grid;
+  gap: var(--Recipe-Grid-Spacing);
+  grid-template-columns: repeat(auto-fill, minmax(240px, 0.5fr));
+  margin: 2rem;
+  margin-bottom: 4rem;
+}
+.RecipeCard {
+  background-color: var(--colour-background);
+  background-size: cover;
+  display: block;
+  align-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.RecipeCard h1 {
+  align-items: center;
+  height: var(--height);
+  font-family: var(--font-fam);
+  color: var(--color-light);
+  margin: 1rem;
+  text-align: center;
+}
+.RecipeCard img {
+  height: auto;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  /* even more control with max-width */
+  max-width: 720px;
+  margin: 8px;
+  border-width: 1rem;
+  border-style: var(--bez);
+  border-color: var(--color-dark);
+}

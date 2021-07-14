@@ -1,23 +1,24 @@
-// import CardMeal from "./CardMeal";
+import './RecipeCards.css';
 const RecipeCards = ({ data }) => {
     const finalMealList = data.length ? (
         data.map((recipe) => {
-            console.log(recipe);
-            console.log(recipe.recipe.image);
             return (
-                <div className="Images">
-                    <h1>{recipe.recipe.label}</h1>
-                    <img src={recipe.recipe.image} alt="recipe_image"></img>
-
+                <div className="RecipeCard" key={recipe.recipe.label.toString()}>
+                    {/* {console.log(recipe)} */}
+                    {/* {for testing and finding variables} */}
+                    <div className="header">
+                        <h1>{recipe.recipe.label}</h1>
+                    </div>
+                    <a href={recipe.recipe.url} target="_blank" rel="noopener noreferrer"><img src={recipe.recipe.image} alt="recipe_image"></img></a>
                 </div>
             );
         })
     ) : (
         <div>
             {" "}
-            <p>Meals are cooking...</p>{" "}
+            <p>Recipies are cooking...</p>{" "}
         </div>
     );
-    return <div className="meallist">{finalMealList}</div>;
+    return <section className="RecipeGrid">{finalMealList}</section>;
 };
 export default RecipeCards;
