@@ -5,7 +5,7 @@
   --rad: 0.9rem;
   --dur: 2s;
   --color-dark: #333;
-  --color-border: #f2f2f2;
+  --color-border: #4e4e4e;
   --color-light: #ffffff;
   --color-brand: #9cbb14;
   --color-accent: #56fc58;
@@ -17,6 +17,7 @@
   --height: 3rem;
   --btn-width: 9rem;
   --bez: cubic-bezier(0, 0, 0.43, 1.49);
+  --Img-Logo-Height: 7em;
 }
 
 /* base styles */
@@ -32,9 +33,15 @@
   max-width: 900px;
   margin: 0 auto;
   border-bottom: var(--color-border);
+  border-radius: 1rem;
 }
 .Navbar h1 {
   color: var(--color-brand);
+}
+.Navbar img{
+  padding: 1rem;
+  height: var(--Img-Logo-Height);
+  width: var(--Img-Logo-Height);
 }
 .Navbar .links {
   margin-left: auto;

@@ -18,7 +18,7 @@ const Home = () => {
         console.log(data);
         localStorage.removeItem(data);
     }
-    const { data } = useFetch(URL);
+    const { data, more } = useFetch(URL);
     return (
         <div>
             <div className="searching">
@@ -34,10 +34,12 @@ const Home = () => {
                 </form>
             </div>
             {/* {Where recipes end up their is no div since recipe cards inserts a section for it} */}
-                {/* {recieved && <img src={data.hits[0].recipe.image}></img> } */}
-                {data && <RecipeCards data={data} />}
+            {/* {recieved && <img src={data.hits[0].recipe.image}></img> } */}
+            {data && <RecipeCards data={data} />}
+            <div className='MoreButton'>
+                {data && <button onClick={HandleSubmit}>Load More</button>}
+            </div>
         </div>
     );
 }
-
 export default Home;

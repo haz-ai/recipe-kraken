@@ -1,3 +1,4 @@
+
 /* Recipe card beginnner class */
 .RecipeGrid {
   display: grid;
@@ -34,4 +35,7 @@
   border-width: 1rem;
   border-style: var(--bez);
   border-color: var(--color-dark);
+}
+.MoreButton button{
+  margin: 3rem;
 }

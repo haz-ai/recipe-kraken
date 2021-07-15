@@ -1,8 +1,9 @@
-import {Link} from 'react-router-dom';
-const Navbar = () =>{
-    return(
+import { Link } from 'react-router-dom';
+import Logo from './Images/Logo.gif';
+const Navbar = () => {
+    return (
         <div className="Navbar">
-            <h1>Recipe Kraken</h1>
+            <img src={Logo} alt="logo"/>
             <div className="links">
                 <Link to='/'>Home</Link>
                 <Link to='/About'>About</Link>
