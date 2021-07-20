@@ -18,7 +18,7 @@ const Home = () => {
         console.log(data);
         localStorage.removeItem(data);
     }
-    const { data, more } = useFetch(URL);
+    const { data} = useFetch(URL);
     return (
         <div>
             <div className="searching">
