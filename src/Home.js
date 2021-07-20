@@ -36,9 +36,9 @@ const Home = () => {
             {/* {Where recipes end up their is no div since recipe cards inserts a section for it} */}
             {/* {recieved && <img src={data.hits[0].recipe.image}></img> } */}
             {data && <RecipeCards data={data} />}
-            <div className='MoreButton'>
+            {/* <div className='MoreButton'>
                 {data && <button onClick={HandleSubmit}>Load More</button>}
-            </div>
+            </div> */}
         </div>
     );
 }
