@@ -17,7 +17,8 @@
   --height: 3rem;
   --btn-width: 9rem;
   --bez: cubic-bezier(0, 0, 0.43, 1.49);
-  --Img-Logo-Height: 7em;
+  --Img-Logo-Height: 10rem;
+  --Mobile-Img-Logo-Height: 5rem;
 }
 
 /* base styles */
@@ -27,13 +28,15 @@
   color: var(--color-dark);
 }
 .Navbar {
-  padding: 20px;
+  padding-left: 5px;
+  padding-right: 10px;
   display: flex;
   align-items: center;
   max-width: 900px;
   margin: 0 auto;
-  border-bottom: var(--color-border);
-  border-radius: 1rem;
+  border-bottom: 5px;
+  border-bottom-color: var(--color-border);
+  /* border-radius: 1rem; */
 }
 .Navbar h1 {
   color: var(--color-brand);
@@ -41,7 +44,7 @@
 .Navbar img{
   padding: 1rem;
   height: var(--Img-Logo-Height);
-  width: var(--Img-Logo-Height);
+  border-bottom-color: var(--color-border);
 }
 .Navbar .links {
   margin-left: auto;
@@ -50,9 +53,23 @@
   margin-left: 8px;
   text-decoration: none;
   padding: 3px;
+  font-size: 2rem;
+  margin-left: 1rem;
 }
 .Navbar a:hover {
   color: var(--color-accent);
+}
+@media only screen and (max-device-width : 640px) {
+  .Navbar img{
+    padding: 1rem;
+    height: var(--Mobile-Img-Logo-Height);
+  }
+  .Navbar a {
+    margin-left: 0.5rem;
+    text-decoration: none;
+    padding: 3px;
+    font-size: 1em;
+  }
 }
 
 /* Content Main */
@@ -121,7 +138,60 @@
   width: 1px;
   overflow: hidden;
 }
-
+@media only screen and (max-device-width : 640px) {
+  .searching form {
+    position: relative;
+    width: 20em;
+    background: var(--color-brand);
+    border-radius: var(--rad);
+  }
+  .searching input,
+  .searching button {
+    height: var(--height);
+    font-family: var(--font-fam);
+    border: 2rem;
+    color: var(--color-dark);
+    font-size: 1.8rem;
+  }
+  .searching input[type="search"] {
+    outline: 0;
+    width: 100%;
+    background: var(--color-light);
+    padding: 0 1.8rem;
+    border-radius: var(--rad);
+    appearance: none;
+    transition: all var(--dur) var(--bez);
+    transition-property: width, border-radius;
+    z-index: 1;
+    position: relative;
+  }
+  .searching button {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--btn-width);
+    font-weight: bold;
+    background: var(--color-brand);
+    border-radius: 0 var(--rad) var(--rad) 0;
+  }
+  .searching input:not(:placeholder-shown) {
+    border-radius: var(--rad) 0 0 var(--rad);
+    width: calc(100% - var(--btn-width));
+  }
+  .searching input:not(:placeholder-shown) ~ button {
+    display: block;
+  }
+  .searching label {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+  }
+}
 /* A simple thing to center the components */
 .Center {
   text-align: justify;
@@ -177,4 +247,14 @@
   text-align: center;
   color: var(--color-light);
   margin-bottom: 5px;
+  font-size: 98%;
+}
+@media only screen and (max-device-width : 640px) {
+  .Footer p {
+    padding: 2%;
+    text-align: center;
+    color: var(--color-light);
+    margin-bottom: 5px;
+    font-size: 55%;
+  }
 }
