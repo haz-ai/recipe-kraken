@@ -36,6 +36,3 @@
   border-style: var(--bez);
   border-color: var(--color-dark);
 }
-.MoreButton button{
-  margin: 3rem;
-}
