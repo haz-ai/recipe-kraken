@@ -1,16 +1,16 @@
-import Navbar from './Navbar';
-import Home from './Home';
-import Footer from './Footer';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import About from './About';
-import Support from './Support';
+import Navbar from './Navbar'
+import Home from './Home'
+import Footer from './Footer'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import About from './About'
+import Support from './Support'
 
-function App() {
+function App () {
   return (
     <Router>
-      <div className="App">
+      <div className='App'>
         <Navbar />
-        <div className="Content">
+        <div className='Content'>
           <Switch>
             <Route exact path='/'>
               <Home />
@@ -23,11 +23,11 @@ function App() {
             </Route>
           </Switch>
         </div>
-        <div className="Footer">
+        <div className='Footer'>
           <Footer />
         </div>
       </div>
     </Router>
-  );
+  )
 }
-export default App;
+export default App
